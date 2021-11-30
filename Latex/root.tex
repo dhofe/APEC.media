@@ -1,0 +1,200 @@
+\documentclass[english]{book}
+%\usepackage{amsbsy}
+
+\PassOptionsToPackage{unicode=true}{hyperref}
+\usepackage{hyperref}
+\hypersetup{
+	pdfborder={0 0 0},
+	breaklinks=true}
+
+\title{APECpedia}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{Preface}
+\chapter*{Preface} \nonumber
+
+Throughout this text vectors are displayed in bold face.
+
+
+\part{Physical Models}
+
+
+\chapter{Quantum Mechanics}
+
+\section{Dirac equation}
+
+\[
+\left( i \gamma^{\mu}\partial_{\mu} - m \right) \psi = 0
+\]
+
+where
+
+$\gamma^{\mu}$ are the gamma matrices.
+
+\chapter{Classical Mechanics}
+
+\section{Newton's Law of Gravitation}
+
+\[
+\mathbf{F} = -G \frac{m'm}{r^3} \mathbf{r}
+\]
+
+\chapter{Electromagnetism}
+
+SI units are used throughout this chapter.
+
+\section{Force Fields in Terms of Potential Fields}
+
+\begin{equation}
+\mathbf{E}=-\nabla\phi - \frac{\partial\mathbf{A}}{\partial t}              \label{eq:Epot}
+\end{equation}
+
+\begin{equation}
+\mathbf{B}=\nabla\times\mathbf{A}          \label{eq:Bpot}
+\end{equation}
+
+
+\section{Maxwell's Equations}
+
+Coulomb's law:
+\begin{equation}
+\nabla\cdot\mathbf{E}=\frac{\rho}{\epsilon}    \label{eq:lawCoulomb}
+\end{equation}
+
+Gauss law:
+\begin{equation}
+\nabla\cdot\mathbf{B}=0        \label{eq:lawGauss}
+\end{equation}
+
+Faraday's Law of Induction:
+\begin{equation}
+\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}    \label{eq:lawFaraday}
+\end{equation}
+
+Ampere's Law with Maxwell's correction:
+\begin{equation}
+\nabla\times\mathbf{B}=\mu\mathbf{J}+\frac{1}{c^{2}}\frac{\partial\mathbf{E}}{\partial t}        \label{eq:lawAmpere}
+\end{equation}
+
+Constitutive Relations (isotropic medium):
+
+\[ \mathbf{D} = \epsilon \mathbf{E} \]
+
+\[ \mathbf{B} = \mu \mathbf{H} \]
+
+\[ \mathbf{J} = \sigma \mathbf{E} \]
+
+Other:
+
+\[ c = \frac{1}{\sqrt{\mu \epsilon}}\]
+
+Where:
+
+$\mathbf{E} =$ Electric field intensity/strength
+
+$\mathbf{H} =$ Magnetic field intensity/strength
+
+$\mathbf{B} =$ Magnetic induction / Magnetic flux density
+
+$\mathbf{D} =$ Electric displacement / Electric flux density
+
+c = velocity of light in the medium
+
+$\sigma =$ Conductivity
+
+Note that if the medium is not isotropic then $\epsilon$ and $\mu$ become tensors. For instance, in the presence of a gravitational field the refractive index of the vacuum changes due to its effect on virtual electron-positron pairs.
+
+When using the Maxwell's equations on problems where we have paths, surfaces and/or volumes changing with time, in such cases the integral form of the equations must be used.
+
+
+\section{Lorentz Force}
+
+\[
+\mathbf{F}=q\left(\mathbf{E}+\mathbf{v}\times\mathbf{B}\right)
+\]
+
+
+\section{Scalar Waves}
+
+Scalar waves result when the electric and magnetic field components are zero, but not so the electric and/or magnetic potentials.
+
+In scalar waves the Lorentz gauge needs not to be zero, but becomes instead an scalar field S~\cite{Vlaen}:
+
+\begin{equation}
+S = -\frac{1}{c^{2}}\frac{\partial\phi}{\partial t} - \mathbf{\nabla} \cdot \mathbf{A}      \label{eq:Spot}
+\end{equation}
+
+By replacing equations~\ref{eq:Epot}, \ref{eq:Bpot} and \ref{eq:Spot} in Maxwell's equations~\ref{eq:lawCoulomb}-\ref{eq:lawAmpere} we get the two potential wave equations:
+
+\[
+\left( \frac{1}{c^{2}}\frac{\partial^{2}\phi}{\partial t^{2}} - \nabla^{2}\phi \right) + \frac{\partial S}{\partial t} = \frac{\rho}{\epsilon}
+\]
+
+\[
+\left( \frac{1}{c^{2}}\frac{\partial^{2}\mathbf{A}}{\partial t^{2}} - \nabla^{2}\mathbf{A} \right) - \nabla S = \mu \mathbf{J}
+\]
+
+If the electric field is zero, then from equation~\ref{eq:Epot} we have~\cite{Dea}:
+
+\begin{equation}
+\nabla\phi + \frac{\partial\mathbf{A}}{\partial t} = 0      \label{eq:xi}
+\end{equation}
+
+Equation~\ref{eq:xi} can always be satisfied if a scalar field $\chi$ exists such that
+
+\begin{equation}
+\mathbf{A} = \nabla \chi      \label{eq:AXi}
+\end{equation}
+
+and
+
+\begin{equation}
+\phi = - \frac{\partial \chi}{\partial t}        \label{eq:PhiXi}
+\end{equation}
+
+If in addition the scalar field S is zero, then by replacing equations~\ref{eq:AXi} and \ref{eq:PhiXi} in \ref{eq:Spot} we get the wave equation for the new scalar field $\chi$:
+
+\begin{equation}
+\frac{1}{c^{2}}\frac{\partial^{2}\chi}{\partial t^{2}} - \nabla^{2}\chi = 0
+\end{equation}
+
+
+\chapter{Einstein's Relativity Theory}
+
+\section{Special Relativity}
+
+Composition law for velocities~\cite{dinverno}:
+
+\[
+v_{AC} = \frac{v_{AB} + v_{BC}}{1+v_{AB}v_{BC}}
+\]
+
+
+\section{General Relativity}
+
+Einstein's Field Equations:
+
+\[
+G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=\frac{8\pi G}{c^{4}}T_{\mu\nu}
+\]
+
+$R_{\mu\nu}$is the Ricci Tensor
+
+R is the Curvature Scalar
+
+$T_{\mu\nu}$is the Energy-Momentum Tensor
+
+
+\addcontentsline{toc}{part}{Bibliography}
+\begin{thebibliography}{99}
+	\bibitem{Vlaen} van Vlaenderen, Koen J. \emph{A generalisation of classical electrodynamics for the prediction of scalar field effects}. 2003 (physics/0305098v1).
+	\bibitem{Dea} Dea, Jack. \emph{Fundamental fields and phase information.} Planetary Association for Clean Energy Newsletter, Vol. 4, Number 3.
+	\bibitem{dinverno} d'Inverno. \emph{Introducing Einstein's Relativity.} Oxford.
+\end{thebibliography}
+
+\end{document}
