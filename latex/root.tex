@@ -1,0 +1,389 @@
+\documentclass[english, 12pt]{book}
+\usepackage{amsmath}
+%\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	breaklinks=true}
+
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0.3in}
+\setlength{\textwidth}{5.9in}
+
+\title{APECpedia}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Disclaimer}
+\addcontentsline{toc}{chapter}{Preface}
+
+
+\chapter*{Disclaimer} \nonumber
+\emph{This document has been written by an amateur with the sole purpose of discussing ideas with other colleagues. No responsibility is assumed by the author for any sort of damage (physical, economical, or otherwise) derived from errors and/or omissions in this document.}
+
+\emph{Most of the content in this document has been copied almost verbatim from books, articles and online content. Sometimes references has been inserted to recognize the authors, but other times they have been omitted to avoid over-populating the document with references. In particular extensive use has been made of Wikipedia, especially in the glossary.}
+
+
+\chapter*{Preface} \nonumber
+
+Throughout this text vectors are displayed in bold face, and Einstein's summation convention is used.
+
+
+\part{Mathematical Preliminaries}
+
+\chapter{Differential Geometry}
+
+\section{Contravariant Vectors, Covariant Vectors and Differential Forms}
+
+The contents of this section come mainly from a book by Lewis Ryder\footnote{Ryder, Lewis. \emph{Introduction to General Relativity}. Cambridge University Press, 2009.}.
+
+
+\subsection{Contravariant Vectors}
+
+A \emph{contravariant basis vector} is a vector that is tangent to the curve that is obtained by varying one coordinate while maintaining all the other coordinates constant. Mathematically this is expressed as:
+
+\[
+\mathbf{e}_i = \frac{\partial}{\partial x^i}
+\]
+
+If the space is curved, then the contravariant basis vectors at a point P belong to the \emph{tangent space} $T_P$ at that point.
+
+A \emph{contravariant vector} is expressed in terms of its components and the contravariant basis vectors as:
+
+\[
+\mathbf{V} = V^i \mathbf{e}_i
+\]
+
+The \emph{Lie bracket} or \emph{commutator} of two contravariant vectors is defined as
+
+\[
+	\left[ \mathbf{V},\mathbf{U} \right] = \mathbf{W}
+\]
+\[
+	W^n = V^i \frac{\partial U^n}{\partial x^i} - U^i \frac{\partial V^n}{\partial x^i}
+\]
+
+and is therefore a contravariant vector also.
+
+
+\subsection{Covariant Vectors and Differential Forms}
+
+A \emph{covariant} or \emph{1-form basis vector} is a vector that is normal to the hypersurface that is obtained by setting one coordinate constant while varying all the other coordinates. Mathematically this is expressed as:
+
+\[
+\boldsymbol\theta^i = dx^i
+\]
+
+The covariant basis vectors can therefore be considered the \emph{gradients} of the coordinates. Note that covariant or 1-form vectors are usually represented with greek letters.
+
+If the space is curved, then the convariant basis vectors at a point P belong to the \emph{cotangent space} $T_P$ at that point.
+
+A \emph{covariant vector} or \emph{covector} or differential 1-form is expressed in terms of its components and the covariant basis vectors as:
+
+\[
+\boldsymbol\omega = \omega_i \boldsymbol\theta^i
+\]
+
+The product of a (contravariant) vector and a 1-form (or covariant vector) produces a scalar:
+
+\[
+\langle \boldsymbol{\omega}, \mathbf{V} \rangle = \omega_i V^i
+\]
+
+A differential 2-form can be obtained as the wedge product (which is antisymmetric) of two 1-forms:
+
+\[
+\boldsymbol{\omega} \land \boldsymbol{\sigma} = \frac{1}{2} (\omega_i \sigma_k - \omega_k \sigma_i) \boldsymbol{\theta}^i \land \boldsymbol{\theta}^k = c_{ik} \boldsymbol{\theta}^i \land \boldsymbol{\theta}^k
+\]
+
+where $\boldsymbol{\theta}^i \land \boldsymbol{\theta}^k$ represents the \emph{oriented area} spanned by the covectors $\boldsymbol{\theta}^i$ and $\boldsymbol{\theta}^k$. The coefficients $c_{ik}$ are the components of an antisymmetric tensor of rank $\left( \begin{array}{c} 0 \\ 2 \end{array} \right)$, i.e. a tensor of 0 contravariant components and 2 covariant components.
+
+The \emph{exterior derivative} of a p-form $\boldsymbol{\omega}$ is a (p+1)-form $\mathbf{d}\boldsymbol{\omega}$.
+
+\begin{description}
+	\item[Poincaré lemma] The second exterior derivative of any differential form is always zero: $\mathbf{d}^2 = 0$. This is similar to the fact that in vector calculus the rotor of a gradient and the divergence of a rotor are both zero.
+\end{description}
+
+This allows to define the \emph{Generalized Stokes Theorem}, valid for any number of dimensions:
+
+\[
+\int_{\partial c} a \cdot dl = \int_c ( \nabla \times a ) \cdot n d\Sigma
+\]
+
+When $c=R^2$ it reproduces Stokes Theorem, and when $c=R^3$ it reproduces Gauss Theorem.
+
+If $\boldsymbol{\omega}_p$ is a p-form and $\boldsymbol{\sigma}_{p-1}$ is a (p-1)-form, then
+\begin{itemize}
+	\item If $\boldsymbol{d\omega}_p = 0$, then $\boldsymbol{\omega}_p$ is called \emph{closed}.
+	\item If $\boldsymbol{\omega}_p = \boldsymbol{d\sigma}_{p-1}$, then $\boldsymbol{\omega}_p$ is called \emph{exact}.
+\end{itemize}
+
+Because of the Poincaré lemma, all exact forms are closed.
+
+
+\section{Holonomic and Non-holonomic Bases}
+
+If a (contravariant) basis of vectors satisfies
+
+\[
+\left[ \mathbf{e}_i, \mathbf{e}_k \right] = 0
+\]
+
+for all $i \not= k$ then the basis is called a \emph{coordinate} or \emph{holomic} one.
+
+If, on the other hand, for some $i \not= k$
+
+\[
+\left[ \mathbf{e}_i, \mathbf{e}_k \right] \not= 0
+\]
+
+then the basis is called a \emph{non-coordinate} or \emph{anholonomic} one.
+
+It is usual to write the commutators as linear combinations of the basis elements:
+
+\[
+\left[ \mathbf{e}_i, \mathbf{e}_k \right] = {C^m}_{ik} \mathbf{e}_m
+\]
+
+where the coefficients ${C^m}_{ik}$ are called the \emph{structure constants} of the Lie algebra. In an anholonomic basis, therefore, not all the structure constants are zero.
+
+\part{Physical Models}
+
+\chapter{Quantum Theory}
+
+When a particle is in a superposition state of two states, the two alternative 'worlds' are not really separate, but they can affect one another via interference phenomean (e.g. as in Mach-Zehnder interferometer). Hence parallel universes really exist. When a measurement is made to see in which of the two states the particle is, a phenomenon called \emph{state-vector reduction} or \emph{collapse of the wave function} occurs and the superposition disappears. 
+
+\section{Schrödinger Equation}
+
+It is valid for non-relativistic cases. The most general form of the time-dependent Schrödinger equation is
+
+\[
+i \hbar \frac{d}{dt} \psi (t) = \hat{H} \psi (t)
+\]
+
+where:
+
+\begin{itemize}
+	\item $\psi(t)$ is the \emph{state vector} (sometimes represented as $| \psi (t) \rangle$). It can represent different properties of the system like a particle's position, momentum or spin.
+	
+	\item $\hat{H}$ is an observable, the \emph{Hamiltonian operator}.
+\end{itemize}
+
+For instance, the position-space Schrödinger equation is
+
+\[
+i \hbar \frac{\partial}{\partial t} \psi(x,t) = \left[ -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x,t) \right]  \psi(x,t)
+\]
+
+where $\psi$ is the \emph{wave function} (a complex-valued function).
+
+The Schrödinger equation does not apply to massless particles; instead the Klein–Gordon equation is required.
+
+\section{Dirac Equation}
+
+It is consistent with Special Relativity.
+
+\[
+\left( i \gamma^{\mu}\partial_{\mu} - m \right) \psi = 0
+\]
+
+where
+
+$\gamma^{\mu}$ are the gamma matrices.
+
+
+\section{Klein-Gordon Equation}
+Klein-Gordon equation in natural units ($c=\hbar=1$):
+
+\[
+\left({\partial_t}^2 - \nabla^2 + m^2 \right) \psi = 0
+\]
+
+
+\chapter{Classical Mechanics}
+
+\section{Newton's Law of Gravitation}
+
+\[
+\mathbf{F} = -G \frac{m'm}{r^3} \mathbf{r}
+\]
+
+\chapter{Electromagnetism}
+
+\section{Preliminary remarks}
+
+Coulomb's law is only valid for electrostatics (i.e. non-moving charges):
+
+\[
+F_E = \frac{1}{4 \pi \epsilon_0} \frac{q_1 \cdot q_2}{r^2}
+\]
+
+
+Biot-Savart law is only valid for magnetostatics (i.e. non-moving wires with constant current). For the generalization of both laws for the non-static case see~\cite{Griffiths} page 449, although it is usually easier to calculate the retarded scalar and vector potentials and then to derive them to obtain E and B. For a moving point charge the potentials become the Liénard-Wiechert potentials, see ibid page 454.
+
+In electrostatics and magnetostatics Newton's third law holds, but in electrodynamics it does not, because the electromagnetic fields carry away part of the momentum. Even perfectly static fields can harbor momentum and angular momentum, as long as E × B is nonzero, and it is only when these field contributions are included that the conservation laws are sustained.
+
+When using the Maxwell's equations on problems where we have paths, surfaces and/or volumes changing with time, in such cases the integral form of the equations must be used.
+
+SI units are used throughout this chapter.
+
+
+\section{Maxwell's Equations}
+
+The basic laws of electrodynamics permit a functional separation between medium-independent law statements (field equations, which have been proven by different authors to be independent of the spacetime metric) and the constitutive specification of the medium [Barrett, "On the distinction between fields and their metric"].
+
+\subsection{Field Equations}
+
+Gauss law:
+\begin{equation}
+\nabla\cdot\mathbf{E}=\frac{\rho}{\epsilon}    \label{eq:lawCoulomb}
+\end{equation}
+
+Gauss law for magnetism:
+\begin{equation}
+\nabla\cdot\mathbf{B}=0        \label{eq:lawGauss}
+\end{equation}
+
+Faraday's Law of Induction:
+\begin{equation}
+\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}    \label{eq:lawFaraday}
+\end{equation}
+
+Ampere's Law with Maxwell's correction:
+\begin{equation}
+\nabla\times\mathbf{B}=\mu\mathbf{J}+\frac{1}{c^{2}}\frac{\partial\mathbf{E}}{\partial t}        \label{eq:lawAmpere}
+\end{equation}
+
+
+\subsection{Constitutive Relations}
+
+The constitutive relations in the case of a isotropic medium are:
+
+\[ \mathbf{D} = \epsilon \mathbf{E} \]
+
+\[ \mathbf{B} = \mu \mathbf{H} \]
+
+\[ \mathbf{J} = \sigma \mathbf{E} \]
+
+Other:
+
+\[ c = \frac{1}{\sqrt{\mu \epsilon}}\]
+
+Where:
+
+$\mathbf{E} =$ Electric field strength
+
+$\mathbf{H} =$ Magnetic field strength
+
+$\mathbf{B} =$ Magnetic induction / Magnetic flux density [$Tesla = Weber / m^2$]
+
+$\mathbf{D} =$ Electric displacement / Electric flux density
+
+$\epsilon =$ Permittivity. In vacuum $\epsilon_0 = 8.85418782 \cdot 10^{-12}$ [F/m]
+
+$\mu =$ Permeability. In vacuum $\mu_0 = 4 \cdot \pi \cdot 10^{-7}$ [H/m]
+
+c = Speed of light in the medium. In vacuum $c = 2.99792458 \cdot 10^8$ [m/s]
+
+$\sigma =$ Conductivity
+
+Note that if the medium is not isotropic then $\epsilon$ and $\mu$ become tensors. For instance, in the presence of a gravitational field the refractive index of the vacuum changes due to its effect on virtual electron-positron pairs.
+
+
+\section{Lorentz Force}
+
+\[
+\mathbf{F}=q\left(\mathbf{E}+\mathbf{v}\times\mathbf{B}\right)
+\]
+
+This equation is valid only when the electric charge $q$ is negligible with respect to the fields sources\footnote{Recami; Salesi. \emph{Deriving Spin Within A Discrete-Time Theory}, 2007.}.
+
+
+\section{Force Fields in Terms of Potential Fields}
+
+\begin{equation}
+\mathbf{E}=-\nabla\phi - \frac{\partial\mathbf{A}}{\partial t}              \label{eq:Epot}
+\end{equation}
+
+\begin{equation}
+\mathbf{B}=\nabla\times\mathbf{A}          \label{eq:Bpot}
+\end{equation}
+
+Some physicists argue that there is a gauge freedom in choosing the potentials, so that often the \emph{Lorenz gauge} is used:
+
+\[
+\frac{1}{c^2} \frac{\partial \phi}{\partial t} + \nabla \cdot \mathbf{A} = 0
+\]
+
+\section{Scalar Waves}
+
+Scalar waves result when the electric and magnetic field components are zero, but not so the electric and/or magnetic potentials.
+
+In scalar waves the Lorenz gauge needs not to be zero, but becomes instead an scalar field S~\cite{Vlaen}:
+
+\begin{equation}
+S = -\frac{1}{c^{2}}\frac{\partial\phi}{\partial t} - \mathbf{\nabla} \cdot \mathbf{A}      \label{eq:Spot}
+\end{equation}
+
+By replacing equations~\ref{eq:Epot}, \ref{eq:Bpot} and \ref{eq:Spot} in Maxwell's equations~\ref{eq:lawCoulomb}-\ref{eq:lawAmpere} we get the two potential wave equations:
+
+\[
+\left( \frac{1}{c^{2}}\frac{\partial^{2}\phi}{\partial t^{2}} - \nabla^{2}\phi \right) + \frac{\partial S}{\partial t} = \frac{\rho}{\epsilon}
+\]
+
+\[
+\left( \frac{1}{c^{2}}\frac{\partial^{2}\mathbf{A}}{\partial t^{2}} - \nabla^{2}\mathbf{A} \right) - \nabla S = \mu \mathbf{J}
+\]
+
+If the electric field is zero, then from equation~\ref{eq:Epot} we have~\cite{Dea}:
+
+\begin{equation}
+\nabla\phi + \frac{\partial\mathbf{A}}{\partial t} = 0      \label{eq:xi}
+\end{equation}
+
+Equation~\ref{eq:xi} can always be satisfied if a scalar field $\chi$ exists such that
+
+\begin{equation}
+\mathbf{A} = \nabla \chi      \label{eq:AXi}
+\end{equation}
+
+and
+
+\begin{equation}
+\phi = - \frac{\partial \chi}{\partial t}        \label{eq:PhiXi}
+\end{equation}
+
+If in addition the scalar field S is zero, then by replacing equations~\ref{eq:AXi} and \ref{eq:PhiXi} in \ref{eq:Spot} we get the wave equation for the new scalar field $\chi$:
+
+\begin{equation}
+\frac{1}{c^{2}}\frac{\partial^{2}\chi}{\partial t^{2}} - \nabla^{2}\chi = 0
+\end{equation}
+
+
+\include{relativity}
+
+\include{hyperspace}
+
+\include{twistors}
+
+\include{propulsion}
+
+\include{glossary}
+	
+\addcontentsline{toc}{part}{Bibliography}
+\begin{thebibliography}{99}
+	\bibitem{Vlaen} van Vlaenderen, Koen J. \emph{A generalisation of classical electrodynamics for the prediction of scalar field effects}. 2003 (physics/0305098v1).
+	\bibitem{Dea} Dea, Jack. \emph{Fundamental fields and phase information.} Planetary Association for Clean Energy Newsletter, Vol. 4, Number 3.
+	\bibitem{dInverno} d'Inverno. \emph{Introducing Einstein's Relativity.} Oxford.
+	\bibitem{Griffiths} Griffiths, David J. \emph{Introduction to electrodynamics}, 4th ed. Pearson.
+	\bibitem{VargasTorr} Vargas, José G., and Torr, Douglas G. \emph{Is Electromagnetic Gravity Control Possible?}. AIP Conference Proceedings, Vol. 699, Issue 1, STAIF 2004.
+	\bibitem{Whittaker} Whittaker, E. T. \emph{On an expression of the electromagnetic field due to electrons by means of two scalar potential functions}. 1904.
+\end{thebibliography}
+
+\end{document}
