@@ -1,0 +1,80 @@
+\chapter{Relativity Theory}
+
+\section{Special Relativity}
+
+Special Relativity can be summarized as saying that physical
+laws must be invariant under the transformation
+
+\begin{equation}
+x^a \rightarrow {L^a}_b x^b + c^a         \label{eq:Poincare}
+\end{equation}
+
+where ${L^a}_b$ is a Lorentz transformation and $c^a$ is a translation.  The ${L^a}_b$ should be restricted to the proper orthochronous component. This gives the 10-dimensional Poincaré group of transformations. [Hodges]
+
+Composition law for velocities~\cite{dInverno}:
+
+\[
+v_{AC} = \frac{v_{AB} + v_{BC}}{1+\frac{v_{AB}v_{BC}}{c^2}}
+\]
+
+
+\section{General Relativity}
+
+\subsection{Einstein's Field Equations}
+
+\[
+G_{\mu\nu}=\frac{8\pi G}{c^{4}}T_{\mu\nu}
+\]
+
+$G_{\mu\nu}$ is the Einstein tensor. It depends only on the geometry:
+
+\[
+G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}
+\]
+
+$G$ is Newton's gravitational constant.
+
+$c$ is the speed of light.
+
+$T_{\mu\nu}$ is the Energy-Momentum tensor [$J/m^3=N/m^2$]. It represents the source of the gravitational field, and encodes the distribution of matter and energy fields (electromagnetic or Yang-Mills).
+
+$R_{\mu\nu}$ is the Ricci (curvature) tensor [$1/m^2$], $R_{\mu\nu} = R^{\lambda}_{\mu\lambda\nu}$\ .
+
+$R$ is the Ricci scalar curvature [$1/m^2$], $R = R_{\mu\nu}g^{\mu\nu}$.
+
+$g_{\mu\nu}(x),i,j=0,1,2,3$ is the Metric tensor. It is the square of the Jacobian tensor. It is symmetric, so it has 10 independent components which in general are the unknowns in the equations.
+
+$R^{\lambda}_{\mu\sigma\nu}$ is the Riemann(-Christoffel) (curvature) tensor [$1/m^2$].
+
+\[
+R^{\alpha}_{\mu\sigma\nu} = \Gamma^{\alpha}_{\mu\nu,\sigma} - \Gamma^{\alpha}_{\mu\sigma,\nu} + \Gamma^{\alpha}_{\beta\sigma} \Gamma^{\beta}_{\mu\nu} - \Gamma^{\alpha}_{\beta\nu} \Gamma^{\beta}_{\mu\sigma}
+\]
+
+$\Gamma_{\mu\nu}^{\xi}$ is the Levi-Civita connection (usually represented by the Christoffel symbols of the second kind):
+
+\[
+	\Gamma_{\mu\nu}^{\xi} = \left\{ \begin{array}{c}
+		\xi \\
+		\mu\nu
+	\end{array} \right\} =
+	\frac{1}{2}g^{\xi\sigma}\left(\frac{\partial g_{\sigma\nu}}{\partial x^{\mu}} + \frac{\partial g_{\mu\sigma}}{\partial x^{\nu}} - \frac{\partial g_{\mu\nu}}{\partial x^{\sigma}}\right)
+\]
+
+where ($4 \times 4$ matrix) $\left[g^{\xi\sigma}\right] = \left[g_{\xi\sigma}\right]^{-1}$.
+
+$x=(x^0,x^1,x^2,x^3),x^0=ct$ (c=speed of light, t=time) is the spacetime position vector.
+
+
+\subsection{Covariant derivative of a vector field}
+
+Curvature of a Riemann manifold will cause a distortion in a vector field. The \emph{covariant derivative} measures how much the vector's direction changes when we move from one spacetime point (event) to another one nearby, taking into account this effect:
+
+\[
+\nabla_\mu V^\nu = \partial_\mu V^\nu + \Gamma^\nu_{\mu \lambda} V^\lambda
+\]
+
+In the case of a dual/covariant vector or 1-form we have:
+
+\[
+\nabla_\mu V_\nu = \partial_\mu V_\nu - \Gamma^\lambda_{\mu \nu} V_\lambda
+\]
